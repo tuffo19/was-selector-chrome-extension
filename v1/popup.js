@@ -81,7 +81,7 @@ function CookieHelper(serverlist) {
           tdDomain.innerHTML = serverlist[srv].name;
 
           var tdName = document.createElement('td');
-          tdName.innerHTML = serverlist[srv].name;
+          tdName.innerHTML = serverlist[srv].hostname;
 
           var tdValue = document.createElement('td');
           tdValue.innerHTML = serverlist[srv].jsessionid;
