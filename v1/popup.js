@@ -7,20 +7,28 @@ if (!chrome.cookies) {
 }
 
 function GetServerJSON(){
+
+
+  chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
+    var url = tabs[0].url;
+    var domain = url.match(/^[\w-]+:\/*\[?([\w\.:-]+)\]?(?::\d+)?/)[1];
+
+    console.log('DEBUG998: ', domain);
+
   // Get json server list
-  let serverlist = 'https://www.dropbox.com/s/vkwscp5u219y47g/server.txt?dl=1';
+    let serverlist = 'https://raw.githubusercontent.com/teopost/wcs-server-finder/master/payloads/' + domain + '.json';
 
-  fetch(serverlist)
-  .then(res => res.json())
-  .then((out) => {
-    console.log('Checkout this JSON! ', out);
+    fetch(serverlist)
+    .then(res => res.json())
+    .then((out) => {
+      console.log('Checkout this JSON! ', out);
 
-    var cookieHelper = new CookieHelper(out);
-    cookieHelper.showCookies();
+      var cookieHelper = new CookieHelper(out);
+      cookieHelper.showCookies();
 
+    })
+    .catch(err => { throw err });
   })
-  .catch(err => { throw err });
-
 }
 
 function CookieHelper(serverlist) {
