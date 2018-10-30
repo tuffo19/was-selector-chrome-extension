@@ -1,0 +1,46 @@
+[
+	{
+		"name": "AppServer01",
+		"jsessionid": "183mgv8b8"
+	},
+	{
+		"name": "AppServer02",
+		"jsessionid": "183mgvj39"
+	},
+  {
+		"name": "AppServer03",
+		"jsessionid": "183p6duh7"
+	},
+  {
+		"name": "AppServer04",
+		"jsessionid": "195dca1he"
+	},
+  {
+		"name": "AppServer05",
+		"jsessionid": "195fng2cu"
+	},
+  {
+		"name": "AppServer06",
+		"jsessionid": "195it3c6j"
+	},
+  {
+		"name": "AppServer07",
+		"jsessionid": "1970k0thv"
+	},
+  {
+		"name": "AppServer08",
+		"jsessionid": "1a0tgqf0d"
+	},
+  {
+		"name": "AppServer09",
+		"jsessionid": "1a0tor6dr"
+	},
+  {
+		"name": "AppServer10",
+		"jsessionid": "1a0tou3rg"
+	},
+  {
+		"name": "AppServer11",
+		"jsessionid": "1avtfh87u"
+	}
+]
