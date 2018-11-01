@@ -1,0 +1,57 @@
+[
+	{
+		"name": "AppServer01",
+		"hostname": "514370-prodapp01.ray-ban.com",
+		"jsessionid": "183mgv8b8"
+	},
+	{
+		"name": "AppServer02",
+		"hostname": "514385-prodapp02.ray-ban.com",
+		"jsessionid": "183mgvj39"
+	},
+  {
+		"name": "AppServer03",
+		"hostname": "514386-prodapp03.ray-ban.com",
+		"jsessionid": "183p6duh7"
+	},
+  {
+		"name": "AppServer04",
+		"hostname": "636843-prodapp04.ray-ban.com",
+		"jsessionid": "195dca1he"
+	},
+  {
+		"name": "AppServer05",
+		"hostname": "636844-prodapp05.ray-ban.com",
+		"jsessionid": "195fng2cu"
+	},
+  {
+		"name": "AppServer06",
+		"hostname": "636845-prodapp06.ray-ban.com",
+		"jsessionid": "195it3c6j"
+	},
+  {
+		"name": "AppServer07",
+		"hostname": "641603-prodapp07.ray-ban.com",
+		"jsessionid": "1970k0thv"
+	},
+  {
+		"name": "AppServer08",
+		"hostname": "734876-prodapp08.ray-ban.com",
+		"jsessionid": "1a0tgqf0d"
+	},
+  {
+		"name": "AppServer09",
+		"hostname": "734877-prodapp09.ray-ban.com",
+		"jsessionid": "1a0tor6dr"
+	},
+  {
+		"name": "AppServer10",
+		"hostname": "734878-prodapp10.ray-ban.com",
+		"jsessionid": "1a0tou3rg"
+	},
+  {
+		"name": "AppServer11",
+		"hostname": "734879-prodapp11.ray-ban.com ",
+		"jsessionid": "1avtfh87u"
+	}
+]
