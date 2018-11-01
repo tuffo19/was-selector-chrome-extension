@@ -1,0 +1,22 @@
+[
+	{
+		"name": "AppServer01",
+		"hostname": "LRRBECBEQ01",
+		"jsessionid": "1cfq9hob7"
+	},
+	{
+		"name": "AppServer02",
+		"hostname": "LRRBECBEQ02",
+		"jsessionid": "1cfq9i2fa"
+	},
+  {
+		"name": "AppServer03",
+		"hostname": "LRRBECBEQ03",
+		"jsessionid": "1cfq9i8tm"
+	},
+  {
+		"name": "AppServer04",
+		"hostname": "LRRBECBEQ04",
+		"jsessionid": "1cfq9iffn"
+	}
+]
