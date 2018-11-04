@@ -51,7 +51,22 @@
 	},
   {
 		"name": "AppServer11",
-		"hostname": "734879-prodapp11.ray-ban.com ",
+		"hostname": "734879-prodapp11.ray-ban.com",
 		"jsessionid": "1avtfh87u"
+	},
+  {
+		"name": "AppServer12",
+		"hostname": "892388-prodapp12.ray-ban.com",
+		"jsessionid": "1bop9ej2n"
+	},
+  {
+		"name": "AppServer13",
+		"hostname": "892389-prodapp13.ray-ban.com",
+		"jsessionid": "1bop9f46d"
+	},
+  {
+		"name": "AppServer14",
+		"hostname": "892392-prodapp14.ray-ban.com",
+		"jsessionid": "1bop9hn2v"
 	}
 ]
