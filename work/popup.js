@@ -136,8 +136,10 @@ function CookieHelper(serverlist) {
 
           console.log("payload:" + serverlist[srv].name, serverlist[srv].jsessionid);
 
-          if (myjsessionid.indexOf(serverlist[srv].jsessionid) > 0) {
+          if (myjsessionid.split(':')[1] == serverlist[srv].jsessionid) {
             trCookie.style.background = "rgb(195, 198, 185)";
+            console.log('myjsessionid >>>>>>>>>>>>>>>>>>>>>> ' + myjsessionid);
+            console.log('serverlist[srv].jsessionid >>>>>>>> ' + serverlist[srv].jsessionid);
             setBadge(prg);
           }
 
