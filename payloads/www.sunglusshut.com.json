@@ -1,0 +1,77 @@
+[
+	{
+		"name": "AppServer01",
+		"hostname": "toconfigure",
+		"jsessionid": "16lrqmgga"
+	},
+	{
+		"name": "AppServer02",
+		"hostname": "toconfigure",
+		"jsessionid": "16ls1dqq6"
+	},
+  {
+		"name": "AppServer03",
+		"hostname": "toconfigure",
+		"jsessionid": "16rj07lko"
+	},
+  {
+		"name": "AppServer04",
+		"hostname": "toconfigure",
+		"jsessionid": "16rj08hj3"
+	},
+  {
+		"name": "AppServer05",
+		"hostname": "toconfigure",
+		"jsessionid": "16rim4jqf"
+	},
+  {
+		"name": "AppServer06",
+		"hostname": "toconfigure",
+		"jsessionid": "17bi6c54m"
+	},
+  {
+		"name": "AppServer07",
+		"hostname": "toconfigure",
+		"jsessionid": "17buvp8qn"
+	},
+  {
+		"name": "AppServer08",
+		"hostname": "toconfigure",
+		"jsessionid": "17buvqtsd"
+	},
+  {
+		"name": "AppServer09",
+		"hostname": "toconfigure",
+		"jsessionid": "17buvsftu"
+	},
+  {
+		"name": "AppServer10",
+		"hostname": "toconfigure",
+		"jsessionid": "17buvu14u"
+	},
+  {
+		"name": "AppServer11",
+		"hostname": "toconfigure",
+		"jsessionid": "195atnpot"
+	},
+  {
+		"name": "AppServer12",
+		"hostname": "toconfigure",
+		"jsessionid": "195atogf0"
+	},
+  {
+		"name": "AppServer13",
+		"hostname": "toconfigure",
+		"jsessionid": "195atp5n2"
+	},
+  {
+		"name": "AppServer14",
+		"hostname": "toconfigure",
+		"jsessionid": "195atpq5j"
+	},
+  {
+		"name": "AppServer15",
+		"hostname": "toconfigure",
+		"jsessionid": "195atqepp"
+	}
+]
