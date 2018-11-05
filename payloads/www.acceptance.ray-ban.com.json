@@ -1,0 +1,22 @@
+[
+	{
+		"name": "AppServer01",
+		"hostname": "514754-perfapp01.ray-ban.com",
+		"jsessionid": "181u9j71n"
+	},
+	{
+		"name": "AppServer02",
+		"hostname": "514755-perfapp02.ray-ban.com",
+		"jsessionid": "181u9jf3o"
+	},
+  {
+		"name": "AppServer03",
+		"hostname": "514756-perfapp03.ray-ban.com",
+		"jsessionid": "182fgbg3n"
+	},
+  {
+		"name": "AppServer04",
+		"hostname": "631031-perfapp4.ray-ban.com",
+		"jsessionid": "193nhdsgs"
+	}
+]
