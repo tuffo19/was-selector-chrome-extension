@@ -54,6 +54,8 @@ function GetServerJSON(){
     // Get json server list
     let serverlist = 'https://raw.githubusercontent.com/teopost/wcs-server-finder/master/payloads/' + domain + '.json';
 
+    console.log('serverlist:' + serverlist);
+
     fetch(serverlist)
     .then(res => res.json())
     .then((out) => {
