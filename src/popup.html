@@ -1,44 +1,85 @@
 <html>
-  <head>
-    <title>WCS Server Finder</title>
-    <style>
 
-	body, table { font-size:1em; }
+<head>
+  <title>WCS Server Finder</title>
+  <style>
+    body,
+    table {
+      font-size: 1em;
+    }
 
-      body {
+    body {
 
-        min-width: 357px;
-        overflow-x: hidden;
-		font-family:arial;
-		font-size:0.8em;
-      }
+      min-width: 457px;
+      overflow-x: hidden;
+      font-family: arial;
+      font-size: 0.8em;
+    }
 
-      img {
-        margin: 3px;
-        border: 2px solid black;
-        vertical-align: middle;
-        width: 75px;
-        height: 75px;
-      }
+    img {
+      margin: 3px;
+      border: 2px solid black;
+      vertical-align: middle;
+      width: 75px;
+      height: 75px;
+    }
 
-	  .title { font-weight:bold; margin-bottom:10px; }
+    .wcs-hide{
+		display:none;
+	  }
 
-	  table#tblCookies { border-collapse:collapse; width:100%; }
-	  table#tblCookies td { border:1px solid #ccc; padding:3px; }
+    #right-aligned{
+    border : solid 0px #e6e6e6;
+    border-radius : 3px;
+		float: right;
+    padding : 6px 20px;
+    background: #e6e6e6;
+    color : #383538;
+		text-align: center;
+		text-transform: uppercase;
+		margin-bottom: 3px;
+    cursor: pointer;
+	  }
 
-    </style>
+    .title {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
 
-    <!--
+    table#tblCookies {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    table#tblCookies td {
+      border: 1px solid #ccc;
+      padding: 3px;
+    }
+  </style>
+
+  <!--
+  		color: #fff;
+  background: #000;
       - JavaScript and HTML must be in separate files: see our Content Security
       - Policy documentation[1] for details and explanation.
       -
       - [1]: http://developer.chrome.com/extensions/contentSecurityPolicy.html
      -->
-     <script src="popup.js"></script>
-  </head>
-  <body>
-	<div class="title">WCS Server Finder</div>
-	<table id="tblCookies">
-	</table>
-  </body>
+  <script src="popup.js"></script>
+</head>
+
+<body>
+  <div class="title">WebSphere Server Finder</div>
+  <div id="owsname">waiting...</div>
+  <br>
+
+  <form id="prod-all-servers">
+    <table id="tblCookies">
+    </table>
+    <br>
+    <button type="button" id="right-aligned" class="n">Change server</button>
+  </form>
+  <div id="non-rbServer"><b>This extension is not supported on this website.</b></div>
+</body>
+
 </html>
