@@ -52,7 +52,7 @@ function GetServerJSON(){
     domain = url.match(/^[\w-]+:\/*\[?([\w\.:-]+)\]?(?::\d+)?/)[1];
 
     // Get json server list
-    let serverlist = 'https://raw.githubusercontent.com/teopost/wcs-server-finder/master/payloads/' + domain + '.json';
+    let serverlist = 'https://raw.githubusercontent.com/teopost/was-selector/master/payloads/' + domain + '.json';
 
     console.log('serverlist:' + serverlist);
 

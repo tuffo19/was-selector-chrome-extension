@@ -1,14 +1,17 @@
 {
   "manifest_version": 2,
 
-  "name": "WAS Changer",
-  "description": "This extension shows the infrastructure server number",
-  "version": "2.0",
+  "name": "WAS Selector",
+  "description": "This extension helps you to identify which WebSphere Application Server is currently selected.",
+  "version": "2.1",
 
   "browser_action": {
-    "default_icon": "icon.png",
+    "default_icon": "icon-48.png",
     "default_popup": "popup.html"
   },
+  "icons": { "16": "icon-16.png",
+             "48": "icon-48.png",
+            "128": "icon-128.png" },
   "permissions": [
 	"cookies",
 	"http://*/*",
