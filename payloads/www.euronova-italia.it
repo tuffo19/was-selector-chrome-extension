@@ -6,7 +6,7 @@
 	},
 	{
 		"name": "AppServer2",
-		"hostname": "18th5i5oo",
-		"jsessionid": "bptcl-prd-12"
+		"hostname": "bptcl-prd-12",
+		"jsessionid": "18th5i5oo"
 	}
 ]
