@@ -52,7 +52,7 @@ function GetServerJSON(){
     domain = url.match(/^[\w-]+:\/*\[?([\w\.:-]+)\]?(?::\d+)?/)[1];
 
     // Get json server list
-    let serverlist = 'https://raw.githubusercontent.com/teopost/was-selector/master/payloads/' + domain + '.json';
+    let serverlist = 'https://raw.githubusercontent.com/teopost/was-selector-chrome-extension/master/payloads/' + domain + '.json';
 
     console.log('serverlist:' + serverlist);
 
@@ -68,10 +68,11 @@ function GetServerJSON(){
       document.getElementById('right-aligned').className = "wcs-hide";
       document.getElementById('owsname').className = "wcs-hide";
       document.getElementById('prod-all-servers').className = "wcs-hide";
-      throw err
+      //throw err
     });
   })
 }
+
 
 function GetCookie(name, cookies, domain) {
   var myjsessionid = '';
@@ -112,71 +113,91 @@ function CookieHelper(serverlist) {
       chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
         var url = tabs[0].url;
 
-        // - Get headers
+        // var cali
         var req = new XMLHttpRequest();
-        req.open('HEAD', url, false);
-        req.send();
-        var myHeader = req.getResponseHeader("OWS");
-        if (myHeader != null) {
-          document.getElementById("owsname").innerHTML = 'Served by IHS: ' + myHeader;
-        }
-        else {
+        req.open('GET', url, true);
+        req.onload = function () {
+          //console.log(req.responseURL); // http://example.com/test
+          //console.log(">>>>" + req.getResponseHeader("OWS"));
+
+          // - Get headers
+          /// var req = new XMLHttpRequest();
+          ///req.open('HEAD', url, false);
+          ///console.log(url);
+          ///req.send();
+
+          // Read Web server custom header
+          var myHeader = req.getResponseHeader("OWS");
+          document.getElementById("domain").innerHTML = ' - ' + domain;
+
+          if (myHeader != null) {
+            document.getElementById("owsname").innerHTML = 'Web Server: ' + myHeader;
+          }
+          else {
             document.getElementById("owsname").innerHTML = '';
-        }
-
-				// Work out domain
-				//var domain = url.match(/^[\w-]+:\/*\[?([\w\.:-]+)\]?(?::\d+)?/)[1];
-
-        var myjsessionid = GetCookie('JSESSIONID', cookies, domain);
-        console.log("mysessionid", myjsessionid);
-
-        var prg=0;
-        for (var srv in serverlist) {
-          prg=prg+1;
-
-          var trCookie = document.createElement('tr');
-
-          console.log("payload:" + serverlist[srv].name, serverlist[srv].jsessionid);
-
-          if (myjsessionid.split(':')[1] == serverlist[srv].jsessionid) {
-            trCookie.style.background = "rgb(195, 198, 185)";
-            console.log('myjsessionid >>>>>>>>>>>>>>>>>>>>>> ' + myjsessionid);
-            console.log('serverlist[srv].jsessionid >>>>>>>> ' + serverlist[srv].jsessionid);
-            setBadge(prg);
           }
 
-          var tdOption = document.createElement('td');
-          tdOption.style.textAlign = "center";
+          // Read reverse proxy custom header
+          var myHeader = req.getResponseHeader("RWS");
+          if (myHeader != null) {
+            document.getElementById("rwsname").innerHTML = 'Reverse Proxy: ' + myHeader;
+          }
+          else {
+            document.getElementById("rwsname").innerHTML = '';
+          }
 
-          var x = document.createElement("INPUT");
-          x.setAttribute("type", "radio");
-          x.setAttribute("name", "App-Server");
-          x.setAttribute("value", serverlist[srv].jsessionid);
+  				// Work out domain
+  				//var domain = url.match(/^[\w-]+:\/*\[?([\w\.:-]+)\]?(?::\d+)?/)[1];
+          var myjsessionid = GetCookie('JSESSIONID', cookies, domain);
+          console.log("mysessionid", myjsessionid);
 
-            if (myjsessionid.indexOf(serverlist[srv].jsessionid) > 0) {
-                x.setAttribute("checked", true);
+          var prg=0;
+          for (var srv in serverlist) {
+            prg=prg+1;
+
+            var trCookie = document.createElement('tr');
+
+            console.log("payload:" + serverlist[srv].name, serverlist[srv].jsessionid);
+
+            if (myjsessionid.split(':')[1] == serverlist[srv].jsessionid) {
+              trCookie.style.background = "rgb(195, 198, 185)";
+              //console.log('myjsessionid >>>>>>>>>>>>>>>>>>>>>> ' + myjsessionid);
+              //console.log('serverlist[srv].jsessionid >>>>>>>> ' + serverlist[srv].jsessionid);
+              //setBadge(prg);
             }
 
-          tdOption.appendChild(x);
+            var tdOption = document.createElement('td');
+            tdOption.style.textAlign = "center";
 
-          var tdDomain = document.createElement('td');
-          tdDomain.innerHTML = serverlist[srv].name;
+            var x = document.createElement("INPUT");
+            x.setAttribute("type", "radio");
+            x.setAttribute("name", "App-Server");
+            x.setAttribute("value", serverlist[srv].jsessionid);
 
-          var tdName = document.createElement('td');
-          tdName.innerHTML = serverlist[srv].hostname;
+              if (myjsessionid.indexOf(serverlist[srv].jsessionid) > 0) {
+                  x.setAttribute("checked", true);
+              }
 
-          var tdValue = document.createElement('td');
-          tdValue.innerHTML = serverlist[srv].jsessionid;
+            tdOption.appendChild(x);
 
-          trCookie.appendChild(tdOption);
-          trCookie.appendChild(tdDomain);
-          trCookie.appendChild(tdName);
-          trCookie.appendChild(tdValue);
+            var tdDomain = document.createElement('td');
+            tdDomain.innerHTML = serverlist[srv].name;
 
+            var tdName = document.createElement('td');
+            tdName.innerHTML = serverlist[srv].hostname;
 
-          tblCookies.appendChild(trCookie);
+            var tdValue = document.createElement('td');
+            tdValue.innerHTML = serverlist[srv].jsessionid;
+
+            trCookie.appendChild(tdOption);
+            trCookie.appendChild(tdDomain);
+            trCookie.appendChild(tdName);
+            trCookie.appendChild(tdValue);
+
+            tblCookies.appendChild(trCookie);
         }
-
+      };
+      req.send();
       // --------------
 			});
 		});

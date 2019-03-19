@@ -3,7 +3,7 @@
 
   "name": "WAS Selector",
   "description": "This extension helps you to identify which WebSphere Application Server is currently selected.",
-  "version": "2.1",
+  "version": "2.2",
 
   "browser_action": {
     "default_icon": "icon-48.png",
