@@ -1,0 +1,12 @@
+[
+	{
+		"name": "AppServer1",
+		"hostname": "bptcl-prd-2",
+		"jsessionid": "18th5hnqj"
+	},
+	{
+		"name": "AppServer2",
+		"hostname": "bptcl-prd-12",
+		"jsessionid": "18th5i5oo"
+	}
+]

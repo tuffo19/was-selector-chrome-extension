@@ -1,49 +1,64 @@
-// Copyright (c) 2012 The Chromium Authors. All rights reserved.
+// Copyright (c) 2019 Stefano Teodorani
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-var protocol='';
-var domain='';
-var jsessionLastPrefix=''
-var jsessionLastValue=''
+var protocol = '';
+var domain = '';
+var jsessionLastPrefix = ''
+var jsessionLastValue = ''
 
 if (!chrome.cookies) {
   chrome.cookies = chrome.experimental.cookies;
 }
 
+
+// Set Badge (for now not user)
+// ============================
 function setBadge(value) {
   //chrome.browserAction.setBadgeText({text: value.toString()});
   //chrome.browserAction.setBadgeText({text: ''});
-  var junk='';
+  var junk = '';
 }
 
+// Reload specific appserver
+// ==========================
 function reloadSpecificServer(e) {
-
-  var radioGroup =document.getElementsByName('App-Server'), selectedRadio ;
+  var radioGroup = document.getElementsByName('App-Server'),
+    selectedRadio;
   console.log(radioGroup.length);
   for (var i = 0; i < radioGroup.length; i++) {
-    if (radioGroup[i].checked){
-      setBadge((i+1).toString());
+    if (radioGroup[i].checked) {
+      setBadge((i + 1).toString());
       selectedRadio = radioGroup[i].value;
       break;
     }
   }
 
-  console.log('url', protocol+'://'+domain);
+  console.log('url', protocol + '://' + domain);
   console.log('selectedRadio', selectedRadio);
 
-  chrome.cookies.set({"name":"JSESSIONID","url":protocol+'://'+domain,"value":jsessionLastPrefix+':'+selectedRadio},function (cookie){
-      chrome.tabs.getSelected(null, function(tab) {
-        var code = 'window.location.reload();';
-        chrome.tabs.executeScript(tab.id, {code: code});
-        window.close();
+  chrome.cookies.set({
+    "name": "JSESSIONID",
+    "url": protocol + '://' + domain,
+    "value": jsessionLastPrefix + ':' + selectedRadio
+  }, function(cookie) {
+    chrome.tabs.getSelected(null, function(tab) {
+      var code = 'window.location.reload();';
+      chrome.tabs.executeScript(tab.id, {
+        code: code
       });
+      window.close();
+    });
   });
 }
 
-
-function GetServerJSON(){
-  chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
+// 2. Get Server JSON
+// ===================
+function GetServerJSON() {
+  chrome.tabs.query({
+    'active': true,
+    'lastFocusedWindow': true
+  }, function(tabs) {
     var url = tabs[0].url;
 
     protocol = url.split('://')[0];
@@ -57,117 +72,89 @@ function GetServerJSON(){
     console.log('serverlist:' + serverlist);
 
     fetch(serverlist)
-    .then(res => res.json())
-    .then((out) => {
-      document.getElementById('non-rbServer').className = "wcs-hide";
-      var cookieHelper = new CookieHelper(out);
-      cookieHelper.showCookies();
+      .then(res => res.json())
+      .then((out) => {
+        document.getElementById('non-rbServer').className = "wcs-hide";
+        var myCookieHelper = new CookieHelper(out);
+        myCookieHelper.showCookies();
 
-    })
-    .catch(err => {
-      document.getElementById('right-aligned').className = "wcs-hide";
-      document.getElementById('owsname').className = "wcs-hide";
-      document.getElementById('rwsname').className = "wcs-hide";
-      document.getElementById('prod-all-servers').className = "wcs-hide";
-      //throw err
-    });
+      })
+      .catch(err => {
+        document.getElementById('right-aligned').className = "wcs-hide";
+        document.getElementById('owsname').className = "wcs-hide";
+        document.getElementById('rwsname').className = "wcs-hide";
+        document.getElementById('prod-all-servers').className = "wcs-hide";
+        //throw err
+      });
   })
 }
 
+// 3. Cookie Helper
+// =================
+function CookieHelper(objPayload) {
 
-function GetCookie(name, cookies, domain) {
-  var myjsessionid = '';
 
-  for (var i in cookies) {
-      if (cookies[i].domain == domain) {
-             if (cookies[i].name == 'JSESSIONID') {
-                myjsessionid = cookies[i].value;
-                break;
-             }
-           }
-   }
+  // Show Cookies method
+  this.showCookies = function() {
 
-   jsessionLastPrefix = myjsessionid.split(':')[0];
-   jsessionLastValue = myjsessionid.split(':')[1];
+    // Get all cookies
+    chrome.cookies.getAll({}, function(cookies) {
 
-   return myjsessionid;
-}
+      var tblDetails = document.getElementById('tblDetails');
 
-function CookieHelper(serverlist) {
-	// Not using this
-	//this.pinnedCookies = {};
-
-	// Not using this
-	//this.reset = function() {
-	//	this.pinnedCookies = {};
-	//}
-
-	// Show Cookies method
-	this.showCookies = function() {
-
-		// Get all cookies
-	  chrome.cookies.getAll({}, function(cookies) {
-
-			var tblCookies = document.getElementById('tblCookies');
-
-			// Determine active tab
-      chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
+      // Determine active tab
+      chrome.tabs.query({
+        'active': true,
+        'lastFocusedWindow': true
+      }, function(tabs) {
         var url = tabs[0].url;
 
-        // var cali
         var req = new XMLHttpRequest();
         req.open('GET', url, true);
-        req.onload = function () {
-          //console.log(req.responseURL); // http://example.com/test
-          //console.log(">>>>" + req.getResponseHeader("OWS"));
-
-          // - Get headers
-          /// var req = new XMLHttpRequest();
-          ///req.open('HEAD', url, false);
-          ///console.log(url);
-          ///req.send();
-
+        req.onload = function() {
           document.getElementById("domain").innerHTML = ' - ' + domain;
 
-          // Read Web server custom header
+          // Get Web server custom header
           var myHeader = req.getResponseHeader("OWS");
 
           if (myHeader != null) {
             document.getElementById("owsname").innerHTML = 'Web Server: ' + myHeader;
-          }
-          else {
+          } else {
             document.getElementById("owsname").innerHTML = '';
           }
 
-          // Read reverse proxy custom header
+          // Get reverse proxy custom header
           var myHeader = req.getResponseHeader("RWS");
-          
+
           if (myHeader != null) {
             document.getElementById("rwsname").innerHTML = 'Rev. Proxy: ' + myHeader;
-          }
-          else {
+          } else {
             document.getElementById("rwsname").innerHTML = '';
           }
 
 
-  				// Work out domain
-  				//var domain = url.match(/^[\w-]+:\/*\[?([\w\.:-]+)\]?(?::\d+)?/)[1];
+          // Work out domain
+          //var domain = url.match(/^[\w-]+:\/*\[?([\w\.:-]+)\]?(?::\d+)?/)[1];
           var myjsessionid = GetCookie('JSESSIONID', cookies, domain);
           console.log("mysessionid", myjsessionid);
 
-          var prg=0;
-          for (var srv in serverlist) {
-            prg=prg+1;
+          // var prg = 0;
 
-            var trCookie = document.createElement('tr');
+          // Parsing appServer list
+          let appserverList = objPayload.appserver;
+          for (var srv in appserverList) {
+            // prg = prg + 1;
 
-            console.log("payload:" + serverlist[srv].name, serverlist[srv].jsessionid);
+            var trAppserver = document.createElement('tr');
 
-            if (myjsessionid.split(':')[1] == serverlist[srv].jsessionid) {
-              trCookie.style.background = "rgb(195, 198, 185)"; 
-              //trCookie.style.background = "rgb(118, 193, 198)"; 
+            console.log("objPayload: " + appserverList['appserver']);
+            console.log("payload:" + appserverList[srv].name, appserverList[srv].jsessionid);
+
+            if (myjsessionid.split(':')[1] == appserverList[srv].jsessionid) {
+              trAppserver.style.background = "rgb(195, 198, 185)";
+              //trAppserver.style.background = "rgb(118, 193, 198)";
               //console.log('myjsessionid >>>>>>>>>>>>>>>>>>>>>> ' + myjsessionid);
-              //console.log('serverlist[srv].jsessionid >>>>>>>> ' + serverlist[srv].jsessionid);
+              //console.log('objPayload[srv].jsessionid >>>>>>>> ' + objPayload[srv].jsessionid);
               //setBadge(prg);
             }
 
@@ -177,42 +164,100 @@ function CookieHelper(serverlist) {
             var x = document.createElement("INPUT");
             x.setAttribute("type", "radio");
             x.setAttribute("name", "App-Server");
-            x.setAttribute("value", serverlist[srv].jsessionid);
+            x.setAttribute("value", appserverList[srv].jsessionid);
 
-              if (myjsessionid.indexOf(serverlist[srv].jsessionid) > 0) {
-                  x.setAttribute("checked", true);
-              }
+            if (myjsessionid.indexOf(appserverList[srv].jsessionid) > 0) {
+              x.setAttribute("checked", true);
+            }
 
             tdOption.appendChild(x);
 
             var tdDomain = document.createElement('td');
-            tdDomain.innerHTML = serverlist[srv].name;
+            tdDomain.innerHTML = appserverList[srv].name;
 
             var tdName = document.createElement('td');
-            tdName.innerHTML = serverlist[srv].hostname;
+            tdName.innerHTML = appserverList[srv].hostname;
 
             var tdValue = document.createElement('td');
-            tdValue.innerHTML = serverlist[srv].jsessionid;
+            tdValue.innerHTML = appserverList[srv].jsessionid;
 
-            trCookie.appendChild(tdOption);
-            trCookie.appendChild(tdDomain);
-            trCookie.appendChild(tdName);
-            trCookie.appendChild(tdValue);
+            trAppserver.appendChild(tdOption);
+            trAppserver.appendChild(tdDomain);
+            trAppserver.appendChild(tdName);
+            trAppserver.appendChild(tdValue);
 
-            tblCookies.appendChild(trCookie);
-        }
-      };
-      req.send();
-      // --------------
-			});
-		});
-	}
+            tblAppservers.appendChild(trAppserver);
+          } // end appserver for
+
+
+          let detailList = objPayload.details;
+          for (var det in detailList) {
+
+            // creo una riga
+            var trDetail = document.createElement('tr');
+            //trDetail.style.background = "rgb(195, 198, 185)";
+
+            // creo la prima colonna
+            //  <a href="https://github.com/teopost/was-selector-chrome-extension/tree/master/payloads" target="_blank">Edit data</a>
+            var tdName = document.createElement('td');
+            //tdName.innerHTML = detailList[det].name;
+
+                var element = document.createElement("a");
+                if (detailList[det].link) {
+                  element.setAttribute("href", detailList[det].link);
+                  element.target = "_blank";
+                }
+                element.title = detailList[det].tooltip;
+                element.innerHTML = detailList[det].name;
+                tdName.appendChild(element);
+
+            // attacco la prima colonna alla riga
+            trDetail.appendChild(tdName);
+
+            // creo la seconda colonna
+            //var tdLink = document.createElement('td');
+            //tdLink.innerHTML = detailList[det].link;
+
+            // attacco la seconda colonna alla riga
+            //trDetail.appendChild(tdLink);
+
+            // attacco la riga alla tabella
+            tblDetails.appendChild(trDetail);
+           
+          } // end details for
+        };
+        req.send();
+        // --------------
+      });
+    });
+  }
 }
 
+// 4. Get Cookies
+// ===============
+function GetCookie(name, cookies, domain) {
+  var myjsessionid = '';
+
+  for (var i in cookies) {
+    if (cookies[i].domain == domain) {
+      if (cookies[i].name == 'JSESSIONID') {
+        myjsessionid = cookies[i].value;
+        break;
+      }
+    }
+  }
+
+  jsessionLastPrefix = myjsessionid.split(':')[0];
+  jsessionLastValue = myjsessionid.split(':')[1];
+
+  return myjsessionid;
+}
+
+
+// 1. START
 // Run our kitten generation script as soon as the document's DOM is ready.
-document.addEventListener('DOMContentLoaded', function () {
-
+// ========================================================================
+document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('right-aligned').addEventListener('click', reloadSpecificServer);
-
   GetServerJSON();
 });

@@ -9,7 +9,6 @@
     }
 
     body {
-
       min-width: 457px;
       overflow-x: hidden;
       font-family: arial;
@@ -46,15 +45,26 @@
       margin-bottom: 10px;
     }
 
-    table#tblCookies {
+    table#tblAppservers {
       border-collapse: collapse;
       width: 100%;
     }
 
-    table#tblCookies td {
+    table#tblAppservers td {
       border: 1px solid #ccc;
       padding: 3px;
     }
+
+    table#tblDetails {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    table#tblDetails td {
+      border: 0px solid #ccc;
+      padding: 3px;
+    }
+
   </style>
 
   <!--
@@ -75,13 +85,16 @@
   <br>
 
   <form id="prod-all-servers">
-    <table id="tblCookies">
-    </table>
+    <table id="tblAppservers"></table>
+    <br>
+    <button type="button" id="right-aligned" class="n">Change server</button>
+    <br>
+    <br>
+    <table id="tblDetails"></table>
     <br>
     <a href="https://github.com/teopost/was-selector-chrome-extension/tree/master/payloads" target="_blank">Add or change metadata</a>
-
-    <button type="button" id="right-aligned" class="n">Change server</button>
   </form>
+
   <div id="non-rbServer"><b>This extension is not supported on this website.</b></div>
 </body>
 
