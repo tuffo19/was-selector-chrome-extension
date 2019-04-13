@@ -67,7 +67,7 @@ function GetServerJSON() {
     domain = url.match(/^[\w-]+:\/*\[?([\w\.:-]+)\]?(?::\d+)?/)[1];
 
     // Get json server list
-    let serverlist = 'https://raw.githubusercontent.com/teopost/was-selector-chrome-extension/master/payloads/' + domain + '.json';
+    let serverlist = 'https://raw.githubusercontent.com/teopost/was-selector-chrome-extension/master/payloads-v2/' + domain + '.json';
 
     console.log('serverlist:' + serverlist);
 
@@ -198,7 +198,6 @@ function CookieHelper(objPayload) {
             //trDetail.style.background = "rgb(195, 198, 185)";
 
             // creo la prima colonna
-            //  <a href="https://github.com/teopost/was-selector-chrome-extension/tree/master/payloads" target="_blank">Edit data</a>
             var tdName = document.createElement('td');
             //tdName.innerHTML = detailList[det].name;
 

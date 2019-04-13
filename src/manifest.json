@@ -2,8 +2,9 @@
   "manifest_version": 2,
 
   "name": "WAS Selector",
+  "homepage_url": "https://github.com/teopost/was-selector-chrome-extension",
   "description": "This extension helps you to identify which WebSphere Application Server is currently selected.",
-  "version": "2.3",
+  "version": "2.4",
 
   "browser_action": {
     "default_icon": "icon-48.png",
