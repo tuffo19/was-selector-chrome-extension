@@ -31,7 +31,7 @@
       "tooltip" : "Open DMGR console"
     },
     {
-      "name": "<B>Commerce</B>",
+      "name": "<br><B>Commerce</B>",
       "link": "",
       "tooltip" : ""
     },
@@ -41,7 +41,7 @@
       "tooltip" : "Open Commerce orgadminconsole"
     },
     {
-      "name": "<B>Documentation</B>",
+      "name": "<br><B>Documentation</B>",
       "link": "",
       "tooltip" : ""
     },
@@ -49,6 +49,16 @@
       "name": "Confluence Project page - (need permission)",
       "link": "https://tecla-it.atlassian.net/wiki/spaces/ElesaGANTer/overview",
       "tooltip" : "Open Confluence project page"
+    },
+    {
+      "name": "<br><B>Monitoring</B>",
+      "link": "",
+      "tooltip" : ""
+    },
+    {
+      "name": "Kibana",
+      "link": "http://10.0.0.157:5601/goto/3281a594ef5ad12b360814824a6a9fd6",
+      "tooltip" : "Show log monitoring dashboard"
     }
   ]
 }
