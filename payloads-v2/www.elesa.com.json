@@ -1,4 +1,5 @@
-[
+{
+  "appserver": [
     {
       "name": "AppServer1",
       "hostname": "srvwcs",
@@ -9,4 +10,7 @@
       "hostname": "srvwcs2",
       "jsessionid": "1be140pud"
   }
-]
+  ],
+  "details": [
+  ]
+}
