@@ -25,7 +25,7 @@
     {
       "name": "Cache monitor",
       "link": "https://tecla-it.atlassian.net/wiki/spaces/ElesaGANTer/overview",
-      "tooltip" : "Open Confluence project page",
+      "tooltip" : "Open cache monitor appserver1",
       "html": true
     }
   ]
