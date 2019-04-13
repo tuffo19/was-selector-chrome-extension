@@ -11,6 +11,12 @@
     }
   ],
   "details": [{
+      "name": "<B>Resources</B>",
+      "link": "",
+      "tooltip" : "",
+      "html": false
+    },
+    {
       "name": "Project page",
       "link": "https://tecla-it.atlassian.net/wiki/spaces/ElesaGANTer/overview",
       "tooltip" : "Open Confluence project page",
