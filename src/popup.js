@@ -67,6 +67,7 @@ function GetServerJSON(){
     .catch(err => {
       document.getElementById('right-aligned').className = "wcs-hide";
       document.getElementById('owsname').className = "wcs-hide";
+      document.getElementById('rwsname').className = "wcs-hide";
       document.getElementById('prod-all-servers').className = "wcs-hide";
       //throw err
     });
@@ -126,9 +127,10 @@ function CookieHelper(serverlist) {
           ///console.log(url);
           ///req.send();
 
+          document.getElementById("domain").innerHTML = ' - ' + domain;
+
           // Read Web server custom header
           var myHeader = req.getResponseHeader("OWS");
-          document.getElementById("domain").innerHTML = ' - ' + domain;
 
           if (myHeader != null) {
             document.getElementById("owsname").innerHTML = 'Web Server: ' + myHeader;
@@ -139,12 +141,14 @@ function CookieHelper(serverlist) {
 
           // Read reverse proxy custom header
           var myHeader = req.getResponseHeader("RWS");
+          
           if (myHeader != null) {
-            document.getElementById("rwsname").innerHTML = 'Reverse Proxy: ' + myHeader;
+            document.getElementById("rwsname").innerHTML = 'Rev. Proxy: ' + myHeader;
           }
           else {
             document.getElementById("rwsname").innerHTML = '';
           }
+
 
   				// Work out domain
   				//var domain = url.match(/^[\w-]+:\/*\[?([\w\.:-]+)\]?(?::\d+)?/)[1];
@@ -160,7 +164,8 @@ function CookieHelper(serverlist) {
             console.log("payload:" + serverlist[srv].name, serverlist[srv].jsessionid);
 
             if (myjsessionid.split(':')[1] == serverlist[srv].jsessionid) {
-              trCookie.style.background = "rgb(195, 198, 185)";
+              trCookie.style.background = "rgb(195, 198, 185)"; 
+              //trCookie.style.background = "rgb(118, 193, 198)"; 
               //console.log('myjsessionid >>>>>>>>>>>>>>>>>>>>>> ' + myjsessionid);
               //console.log('serverlist[srv].jsessionid >>>>>>>> ' + serverlist[srv].jsessionid);
               //setBadge(prg);
