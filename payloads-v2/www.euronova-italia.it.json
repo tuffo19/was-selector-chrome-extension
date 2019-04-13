@@ -11,7 +11,7 @@
 	}
   ],
   "details": [{
-      "name": "<B>WebSphere consoles</B>",
+      "name": "<B>WebSphere</B>",
       "link": "",
       "tooltip" : ""
     },
@@ -29,7 +29,17 @@
       "name": "DMGR on bptcl-prd-7",
       "link": "http://172.16.8.107:9060/ibm/console/",
       "tooltip" : "Open DMGR console"
-    }
+    },
+    {
+      "name": "<B>Commerce</B>",
+      "link": "",
+      "tooltip" : ""
+    },
+    {
+      "name": "Orgadmin console - TO BE COMPLETE",
+      "link": "https://tecla-it.atlassian.net/wiki/spaces/ElesaGANTer/overview",
+      "tooltip" : "Open Commerce orgadminconsole"
+    },
     {
       "name": "<B>Documentation</B>",
       "link": "",
