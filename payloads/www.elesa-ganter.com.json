@@ -12,11 +12,15 @@
   ],
   "details": [{
       "name": "Project page",
-      "link": "https://tecla-it.atlassian.net/wiki/spaces/ElesaGANTer/overview"
+      "link": "https://tecla-it.atlassian.net/wiki/spaces/ElesaGANTer/overview",
+      "tooltip" : "Open Confluence project page",
+      "html": false
     },
     {
-      "name": "name 2",
-      "link": "link 2"
+      "name": "Cache monitor",
+      "link": "https://tecla-it.atlassian.net/wiki/spaces/ElesaGANTer/overview",
+      "tooltip" : "Open Confluence project page",
+      "html": true
     }
   ]
 }
