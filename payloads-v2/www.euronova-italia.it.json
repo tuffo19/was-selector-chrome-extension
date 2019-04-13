@@ -16,11 +16,6 @@
       "tooltip" : ""
     },
     {
-      "name": "Project page",
-      "link": "https://tecla-it.atlassian.net/wiki/spaces/ElesaGANTer/overview",
-      "tooltip" : "Open Confluence project page"
-    },
-    {
       "name": "Cache monitor on bptcl-prd-2",
       "link": "http://172.16.8.102:9060/cachemonitor/",
       "tooltip" : "Open cache monitor appserver1"
@@ -35,5 +30,15 @@
       "link": "http://172.16.8.107:9060/ibm/console/",
       "tooltip" : "Open DMGR console"
     }
+    {
+      "name": "<B>Documentation</B>",
+      "link": "",
+      "tooltip" : ""
+    },
+    {
+      "name": "Confluence Project page - (need permission)",
+      "link": "https://tecla-it.atlassian.net/wiki/spaces/ElesaGANTer/overview",
+      "tooltip" : "Open Confluence project page"
+    },
   ]
 }
