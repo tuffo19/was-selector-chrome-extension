@@ -13,20 +13,17 @@
   "details": [{
       "name": "<B>Resources</B>",
       "link": "",
-      "tooltip" : "",
-      "html": false
+      "tooltip" : "."
     },
     {
       "name": "Project page",
       "link": "https://tecla-it.atlassian.net/wiki/spaces/ElesaGANTer/overview",
-      "tooltip" : "Open Confluence project page",
-      "html": false
+      "tooltip" : "Open Confluence project page"
     },
     {
       "name": "Cache monitor",
       "link": "https://tecla-it.atlassian.net/wiki/spaces/ElesaGANTer/overview",
-      "tooltip" : "Open cache monitor appserver1",
-      "html": true
+      "tooltip" : "Open cache monitor appserver1"
     }
   ]
 }
