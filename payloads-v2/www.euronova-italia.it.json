@@ -12,7 +12,7 @@
   ],
   "details": [
     {
-      "name": "<br><B>Documentation</B>",
+      "name": "<B>Documentation</B>",
       "link": "",
       "tooltip" : ""
     },
@@ -22,7 +22,7 @@
       "tooltip" : "Open Confluence project page"
     }, 
     {
-      "name": "<B>WebSphere</B>",
+      "name": "<br><B>WebSphere</B>",
       "link": "",
       "tooltip" : ""
     },
