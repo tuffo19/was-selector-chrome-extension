@@ -10,10 +10,26 @@
 		"jsessionid": "18th5i5oo"
 	}
   ],
-  "details": [{
+  "details": [
+    {
+      "name": "<br><B>Documentation</B>",
+      "link": "",
+      "tooltip" : ""
+    },
+    {
+      "name": "Confluence Project page",
+      "link": "https://tecla-it.atlassian.net/wiki/spaces/ElesaGANTer/overview",
+      "tooltip" : "Open Confluence project page"
+    }, 
+    {
       "name": "<B>WebSphere</B>",
       "link": "",
       "tooltip" : ""
+    },
+    {
+      "name": "DMGR on bptcl-prd-7",
+      "link": "http://172.16.8.107:9060/ibm/console/",
+      "tooltip" : "Open DMGR console"
     },
     {
       "name": "Cache monitor on bptcl-prd-2",
@@ -24,31 +40,6 @@
       "name": "Cache monitor on bptcl-prd-12",
       "link": "http://172.16.8.112:9060/cachemonitor/",
       "tooltip" : "Open cache monitor appserver2"
-    },
-    {
-      "name": "DMGR on bptcl-prd-7",
-      "link": "http://172.16.8.107:9060/ibm/console/",
-      "tooltip" : "Open DMGR console"
-    },
-    {
-      "name": "<br><B>Commerce</B>",
-      "link": "",
-      "tooltip" : ""
-    },
-    {
-      "name": "Orgadmin console - TO BE COMPLETE",
-      "link": "https://tecla-it.atlassian.net/wiki/spaces/ElesaGANTer/overview",
-      "tooltip" : "Open Commerce orgadminconsole"
-    },
-    {
-      "name": "<br><B>Documentation</B>",
-      "link": "",
-      "tooltip" : ""
-    },
-    {
-      "name": "Confluence Project page - (need permission)",
-      "link": "https://tecla-it.atlassian.net/wiki/spaces/ElesaGANTer/overview",
-      "tooltip" : "Open Confluence project page"
     },
     {
       "name": "<br><B>Monitoring</B>",
