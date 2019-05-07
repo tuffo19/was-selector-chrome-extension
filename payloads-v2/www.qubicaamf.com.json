@@ -1,0 +1,65 @@
+{
+  "appserver": [{
+		"name": "AppServer1",
+		"hostname": "bptcl-prd-2",
+		"jsessionid": "18th5hnqj"
+	},
+	{
+		"name": "AppServer2",
+		"hostname": "bptcl-prd-12",
+		"jsessionid": "18th5i5oo"
+	}
+  ],
+  "details": [
+    {
+      "name": "<B>Documentation</B>",
+      "link": "",
+      "tooltip" : ""
+    },
+    {
+      "name": "Confluence Project page",
+      "link": "https://tecla-it.atlassian.net/wiki/spaces/ElesaGANTer/overview",
+      "tooltip" : "Open Confluence project page"
+    }, 
+    {
+      "name": "<br><B>WebSphere</B>",
+      "link": "",
+      "tooltip" : ""
+    },
+    {
+      "name": "DMGR on qamf-ec-dmgr01",
+      "link": "https://10.64.3.10:9043/ibm/console/",
+      "tooltip" : "Open DMGR console"
+    },
+    {
+      "name": "Cache monitor WAS on qamf-ec-was01",
+      "link": "http://10.64.3.8:9060/cachemonitor/",
+      "tooltip" : "Open cache monitor appserver1"
+    },
+    {
+      "name": "Cache monitor WAS on qamf-ec-was02",
+      "link": "http://10.64.3.9:9060/cachemonitor/",
+      "tooltip" : "Open cache monitor appserver2"
+    },
+    {
+      "name": "Cache monitor SOLR on qamf-ec-was01",
+      "link": "http://10.64.3.8:9060/cachemonitor/",
+      "tooltip" : "Open cache monitor appserver1"
+    },
+    {
+      "name": "Cache monitor SOLR on qamf-ec-was02",
+      "link": "http://10.64.3.9:9060/cachemonitor/",
+      "tooltip" : "Open cache monitor appserver2"
+    },
+    {
+      "name": "<br><B>Monitoring</B>",
+      "link": "",
+      "tooltip" : ""
+    },
+    {
+      "name": "Kibana",
+      "link": "http://localhost:5601/goto/3281a594ef5ad12b360814824a6a9fd6",
+      "tooltip" : "Show log monitoring dashboard"
+    }
+  ]
+}
