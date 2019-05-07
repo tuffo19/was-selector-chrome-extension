@@ -28,27 +28,27 @@
     },
     {
       "name": "DMGR on qamf-ec-dmgr01",
-      "link": "https://10.64.3.10:9043/ibm/console/",
+      "link": "https://qamf-ec-dmgr01.qamf.net:9043/ibm/console/",
       "tooltip" : "Open DMGR console"
     },
     {
       "name": "Cache monitor WAS on qamf-ec-was01",
-      "link": "http://10.64.3.8:9060/cachemonitor/",
+      "link": "http://qamf-ec-was01.qamf.net:9060/cachemonitor/",
       "tooltip" : "Open cache monitor appserver1"
     },
     {
       "name": "Cache monitor WAS on qamf-ec-was02",
-      "link": "http://10.64.3.9:9060/cachemonitor/",
+      "link": "http://qamf-ec-was02.qamf.net:9060/cachemonitor/",
       "tooltip" : "Open cache monitor appserver2"
     },
     {
       "name": "Cache monitor SOLR on qamf-ec-was01",
-      "link": "http://10.64.3.8:9060/cachemonitor/",
+      "link": "http://qamf-ec-was01.qamf.net:9060/cachemonitor/",
       "tooltip" : "Open cache monitor appserver1"
     },
     {
       "name": "Cache monitor SOLR on qamf-ec-was02",
-      "link": "http://10.64.3.9:9060/cachemonitor/",
+      "link": "http://qamf-ec-was02.qamf.net:9060/cachemonitor/",
       "tooltip" : "Open cache monitor appserver2"
     },
     {
