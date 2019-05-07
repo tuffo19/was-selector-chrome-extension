@@ -1,13 +1,13 @@
 {
   "appserver": [{
 		"name": "AppServer1",
-		"hostname": "bptcl-prd-2",
-		"jsessionid": "18th5hnqj"
+		"hostname": "qamf-ec-web01",
+		"jsessionid": "1akj6mth6"
 	},
 	{
 		"name": "AppServer2",
-		"hostname": "bptcl-prd-12",
-		"jsessionid": "18th5i5oo"
+		"hostname": "qamf-ec-web02",
+		"jsessionid": "1akkuuvru"
 	}
   ],
   "details": [
