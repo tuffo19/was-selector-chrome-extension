@@ -1,0 +1,14 @@
+{
+  "appserver": [{
+      "name": "AppServer1",
+      "hostname": "wcsstg",
+      "jsessionid": "-1"
+    }
+  ],
+  "details": [{
+      "name": "<B>Resources</B>",
+      "link": "",
+      "tooltip" : ""
+    }
+  ]
+}
