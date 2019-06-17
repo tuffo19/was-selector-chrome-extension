@@ -15,6 +15,31 @@
       "name": "Confluence Project page",
       "link": "https://tecla-it.atlassian.net/wiki/spaces/DIMO/overview",
       "tooltip" : "Open Confluence project page"
+    },
+    {
+      "name": "<B>Consoles</B>",
+      "link": "",
+      "tooltip" : ""
+    },
+    {
+      "name": "Management center",
+      "link": "https://fnz-tit-dimo-docker-dev/wcs/shop/it/dimoit/lobtools/cmc/ManagementCenter",
+      "tooltip" : ""
+    },  
+    {
+      "name": "Admin console",
+      "link": "https://fnz-tit-dimo-docker-dev:8002/webapp/wcs/admin/servlet/ToolsLogon?XMLFile=adminconsole.AdminConsoleLogon",
+      "tooltip" : ""
+    },  
+    {
+      "name": "Org admin console",
+      "link": "https://fnz-tit-dimo-docker-dev:8004/webapp/wcs/orgadmin/servlet/ToolsLogon?XMLFile=buyerconsole.BuyAdminConsoleLogon",
+      "tooltip" : ""
+    },  
+    {
+      "name": "Accelerator",
+      "link": "https://fnz-tit-dimo-docker-dev:8000/webapp/wcs/tools/servlet/ToolsLogon?XMLFile=common.mcLogon",
+      "tooltip" : ""
     }
   ]
 }
