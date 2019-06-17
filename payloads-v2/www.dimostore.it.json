@@ -1,0 +1,20 @@
+{
+  "appserver": [{
+		"name": "AppServer",
+		"hostname": "bptcl-prd-2",
+		"jsessionid": "-1"
+	}
+  ],
+  "details": [
+    {
+      "name": "<B>Documentation</B>",
+      "link": "",
+      "tooltip" : ""
+    },
+    {
+      "name": "Confluence Project page",
+      "link": "https://tecla-it.atlassian.net/wiki/spaces/DIMO/overview",
+      "tooltip" : "Open Confluence project page"
+    }
+  ]
+}
