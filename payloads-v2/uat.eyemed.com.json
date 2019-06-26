@@ -1,0 +1,16 @@
+{
+  "appserver": [
+  {
+      "name": "AppServer1",
+      "hostname": "srvwcs",
+      "jsessionid": "sticky.1"
+  },
+  {
+      "name": "AppServer2",
+      "hostname": "srvwcs2",
+      "jsessionid": "sticky.2"
+  }
+  ],
+  "details": [
+  ]
+}
