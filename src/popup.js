@@ -4,13 +4,14 @@
 
 var protocol = '';
 var domain = '';
-var jsessionLastPrefix = ''
-var jsessionLastValue = ''
+var activeCookiePrefix = ''
+var activeFullCookieValue = ''
+var activeCookieValue = ''
+var activeCookieName = ''
 
 if (!chrome.cookies) {
   chrome.cookies = chrome.experimental.cookies;
 }
-
 
 // Set Badge (for now not user)
 // ============================
@@ -38,9 +39,9 @@ function reloadSpecificServer(e) {
   console.log('selectedRadio', selectedRadio);
 
   chrome.cookies.set({
-    "name": "JSESSIONID",
+    "name": activeCookieName,
     "url": protocol + '://' + domain,
-    "value": jsessionLastPrefix + ':' + selectedRadio
+    "value": activeCookiePrefix + selectedRadio
   }, function(cookie) {
     chrome.tabs.getSelected(null, function(tab) {
       var code = 'window.location.reload();';
@@ -92,8 +93,6 @@ function GetServerJSON() {
 // 3. Cookie Helper
 // =================
 function CookieHelper(objPayload) {
-
-
   // Show Cookies method
   this.showCookies = function() {
 
@@ -112,7 +111,7 @@ function CookieHelper(objPayload) {
         var req = new XMLHttpRequest();
         req.open('GET', url, true);
         req.onload = function() {
-          document.getElementById("domain").innerHTML = ' - ' + domain;
+          document.getElementById("domain").innerHTML = (objPayload.title == null ? "WAS Selector - " : objPayload.title) + domain;
 
           // Get Web server custom header
           var myHeader = req.getResponseHeader("OWS");
@@ -135,10 +134,10 @@ function CookieHelper(objPayload) {
 
           // Work out domain
           //var domain = url.match(/^[\w-]+:\/*\[?([\w\.:-]+)\]?(?::\d+)?/)[1];
-          var myjsessionid = GetCookie('JSESSIONID', cookies, domain);
-          console.log("mysessionid", myjsessionid);
+          // get JSESSIONID var
+          activeCookieName = objPayload.cookie == null ? "JSESSIONID" : objPayload.cookie;
 
-          // var prg = 0;
+          GetCookie(activeCookieName, cookies, domain);
 
           // Parsing appServer list
           let appserverList = objPayload.appserver;
@@ -150,12 +149,8 @@ function CookieHelper(objPayload) {
             console.log("objPayload: " + appserverList['appserver']);
             console.log("payload:" + appserverList[srv].name, appserverList[srv].jsessionid);
 
-            if (myjsessionid.split(':')[1] == appserverList[srv].jsessionid) {
+            if (activeCookieValue == appserverList[srv].jsessionid) {
               trAppserver.style.background = "rgb(195, 198, 185)";
-              //trAppserver.style.background = "rgb(118, 193, 198)";
-              //console.log('myjsessionid >>>>>>>>>>>>>>>>>>>>>> ' + myjsessionid);
-              //console.log('objPayload[srv].jsessionid >>>>>>>> ' + objPayload[srv].jsessionid);
-              //setBadge(prg);
             }
 
             var tdOption = document.createElement('td');
@@ -166,7 +161,7 @@ function CookieHelper(objPayload) {
             x.setAttribute("name", "App-Server");
             x.setAttribute("value", appserverList[srv].jsessionid);
 
-            if (myjsessionid.indexOf(appserverList[srv].jsessionid) > 0) {
+            if (activeCookieValue == appserverList[srv].jsessionid) {
               x.setAttribute("checked", true);
             }
 
@@ -188,7 +183,6 @@ function CookieHelper(objPayload) {
 
             tblAppservers.appendChild(trAppserver);
           } // end appserver for
-
 
           let detailList = objPayload.details;
           for (var det in detailList) {
@@ -235,21 +229,29 @@ function CookieHelper(objPayload) {
 // 4. Get Cookies
 // ===============
 function GetCookie(name, cookies, domain) {
-  var myjsessionid = '';
+  var myCookie = '';
 
   for (var i in cookies) {
     if (cookies[i].domain == domain) {
-      if (cookies[i].name == 'JSESSIONID') {
-        myjsessionid = cookies[i].value;
+      if (cookies[i].name == name) {
+        myCookie = cookies[i].value;
         break;
       }
     }
   }
 
-  jsessionLastPrefix = myjsessionid.split(':')[0];
-  jsessionLastValue = myjsessionid.split(':')[1];
+  if (name == "JSESSIONID") {
+    activeCookiePrefix = myCookie.split(':')[0] + ":";
+    activeCookieValue = myCookie.split(':')[1];
+    activeFullCookieValue = myCookie;
+  }
+  else {
+    activeCookiePrefix = "";
+    activeCookieValue = myCookie;
+    activeFullCookieValue = myCookie;
+  }
 
-  return myjsessionid;
+  return myCookie;
 }
 
 
