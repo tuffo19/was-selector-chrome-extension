@@ -1,5 +1,5 @@
 {
-  "cookie": "JSESSIONID",
+  "cookie": "ROUTEID",
   "appserver": [
   {
       "name": "AppServer1",
