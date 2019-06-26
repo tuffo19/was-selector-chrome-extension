@@ -1,0 +1,11 @@
+{
+  "appserver": [
+	{
+		"name": "AppServer1",
+		"hostname": "ax191sfi",
+		"jsessionid": "-1"
+	}
+  ],
+  "details": [
+  ]
+}

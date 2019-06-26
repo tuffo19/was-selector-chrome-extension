@@ -1,0 +1,60 @@
+{
+  "appserver": [{
+		"name": "AppServer1",
+		"hostname": "bptcl-prd-2",
+		"jsessionid": "18th5hnqj"
+	},
+	{
+		"name": "AppServer2",
+		"hostname": "bptcl-prd-12",
+		"jsessionid": "18th5i5oo"
+	}
+  ],
+  "details": [
+    {
+      "name": "<B>Documentation</B>",
+      "link": "",
+      "tooltip" : ""
+    },
+    {
+      "name": "Confluence Project page",
+      "link": "https://tecla-it.atlassian.net/wiki/spaces/ElesaGANTer/overview",
+      "tooltip" : "Open Confluence project page"
+    }, 
+    {
+      "name": "<br><B>WebSphere</B>",
+      "link": "",
+      "tooltip" : ""
+    },
+    {
+      "name": "DMGR on bptcl-prd-7",
+      "link": "http://172.16.8.107:9060/ibm/console/",
+      "tooltip" : "Open DMGR console"
+    },
+    {
+      "name": "Cache monitor on bptcl-prd-2",
+      "link": "http://172.16.8.102:9060/cachemonitor/",
+      "tooltip" : "Open cache monitor appserver1"
+    },
+    {
+      "name": "Cache monitor on bptcl-prd-12",
+      "link": "http://172.16.8.112:9060/cachemonitor/",
+      "tooltip" : "Open cache monitor appserver2"
+    },
+    {
+      "name": "<br><B>Monitoring</B>",
+      "link": "",
+      "tooltip" : ""
+    },
+    {
+      "name": "Kibana",
+      "link": "http://tmon-poc.tecla.it:5601/goto/011b15e63c06835a719d058dcba2f1d6",
+      "tooltip" : "Show log monitoring dashboard"
+    },
+    {
+      "name": "New Relic",
+      "link": "https://rpm.newrelic.com/accounts/2372072/applications/300387665",
+      "tooltip" : "Show APM monitoring dashboard"
+    }
+  ]
+}

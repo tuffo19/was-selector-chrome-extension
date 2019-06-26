@@ -67,7 +67,7 @@ function GetServerJSON() {
     domain = url.match(/^[\w-]+:\/*\[?([\w\.:-]+)\]?(?::\d+)?/)[1];
 
     // Get json server list
-    let serverlist = 'https://raw.githubusercontent.com/teopost/was-selector-chrome-extension/master/payloads-v2/' + domain + '.json';
+    let serverlist = 'https://raw.githubusercontent.com/teopost/was-selector-chrome-extension/master/payloads-v3/' + domain + '.json';
 
     console.log('serverlist:' + serverlist);
 
@@ -222,7 +222,7 @@ function CookieHelper(objPayload) {
 
             // attacco la riga alla tabella
             tblDetails.appendChild(trDetail);
-           
+
           } // end details for
         };
         req.send();
