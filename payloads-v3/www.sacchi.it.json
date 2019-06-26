@@ -3,12 +3,12 @@
     {
       "name": "AppServer1",
       "hostname": "WEBECOM1",
-      "jsessionid": "WEBECOM1"
+      "jsessionid": "WEBECOM1:WEBPORTAL1"
   },
   {
       "name": "AppServer2",
       "hostname": "WEBECOM2",
-      "jsessionid": "WEBECOM2"
+      "jsessionid": "WEBECOM2:WEBPORTAL1"
   }
   ],
   "details": [
