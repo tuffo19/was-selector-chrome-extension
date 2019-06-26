@@ -1,4 +1,5 @@
 {
+  "cookie": "JSESSIONID",
   "appserver": [
   {
       "name": "AppServer1",
