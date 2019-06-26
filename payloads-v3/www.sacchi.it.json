@@ -1,5 +1,5 @@
 {
-  "appserver": "WCS + WCM Selector - ",
+  "title": "WCS + WCM Selector - ",
   "appserver": [
     {
       "name": "AppServer1",
