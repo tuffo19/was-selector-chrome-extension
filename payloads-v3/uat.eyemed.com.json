@@ -1,16 +1,16 @@
 {
   "title": "Coremedia selector - ",
-  "cookie": "ROUTEID",
+  "cookie": "AWSALB",
   "appserver": [
   {
       "name": "AppServer1",
       "hostname": "srvwcs",
-      "jsessionid": "sticky.1"
+      "jsessionid": "4dJ71RiBAa9B8rW07iW1QOy1Pdf2BI/c5ByZiWPNdW+uHu4dBHGnstXq1jB2oZTJEpfwqOToACqTp1Rmu93lVqQH9bn1PFllj0E1hgnGCYocPTmP8cPttFPJoyC2"
   },
   {
       "name": "AppServer2",
       "hostname": "srvwcs2",
-      "jsessionid": "sticky.2"
+      "jsessionid": "unknow"
   }
   ],
   "details": [
