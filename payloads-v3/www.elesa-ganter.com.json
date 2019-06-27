@@ -24,6 +24,11 @@
       "name": "Cache monitor",
       "link": "https://tecla-it.atlassian.net/wiki/spaces/ElesaGANTer/overview",
       "tooltip" : "Open cache monitor appserver1"
+    },
+    {
+      "name": "DMGR Prod",
+      "link": "https://81.95.148.18:9043/ibm/console/logon.jsp",
+      "tooltip" : "Open PROD - DMG Console"
     }
   ]
 }
