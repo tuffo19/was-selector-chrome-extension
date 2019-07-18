@@ -1,0 +1,16 @@
+{
+  "appserver": [
+    {
+      "name": "AppServer1",
+      "hostname": "portal01.calligaris.local",
+      "jsessionid": "1b4m8d36j"
+  },
+  {
+      "name": "portal01.calligaris.local",
+      "hostname": "srvwcs2",
+      "jsessionid": "1b52ibu09"
+  }
+  ],
+  "details": [
+  ]
+}
