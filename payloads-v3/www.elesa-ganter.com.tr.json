@@ -1,0 +1,12 @@
+[
+  {
+      "name": "AppServer1",
+      "hostname": "srvwcs",
+      "jsessionid": "1cd041ijm"
+  },
+  {
+      "name": "AppServer2",
+      "hostname": "srvwcs2",
+      "jsessionid": "1cd042d6v"
+  }
+]
