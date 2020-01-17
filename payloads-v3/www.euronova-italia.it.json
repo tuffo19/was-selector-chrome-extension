@@ -2,7 +2,7 @@
   "appserver": [{
 		"name": "AppServer1",
 		"hostname": "bptcl-prd-2",
-		"jsessionid": "18th5hnqj"
+		"jsessionid": "PLcomm02"
 	},
 	{
 		"name": "AppServer2",
