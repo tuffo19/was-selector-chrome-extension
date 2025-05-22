@@ -3,7 +3,7 @@
 
   "name": "Tuffo - Cookie selector",
   "homepage_url": "https://github.com/tuffo19/was-selector-chrome-extension",
-  "description": "This extension helps you to identify which WebSphere Application Server is currently selected. Based on the job of teopost and extended and updated by Tuffo Produciónes",
+  "description": "Identify which Server is currently selected. Based on the job of teopost and extended and updated by Tuffo Produciónes",
   "version": "3",
 
   "action": {
