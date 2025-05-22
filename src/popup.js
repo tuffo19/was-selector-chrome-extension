@@ -68,7 +68,7 @@ function GetServerJSON() {
     domain = url.match(/^[\w-]+:\/*\[?([\w\.:-]+)\]?(?::\d+)?/)[1];
 
     // Get json server list
-    let serverlist = 'https://raw.githubusercontent.com/teopost/was-selector-chrome-extension/master/payloads-v3/' + domain + '.json';
+    let serverlist = 'https://raw.githubusercontent.com/tuffo19/was-selector-chrome-extension/refs/heads/master/payloads-v3/' + domain + '.json';
 
     console.log('serverlist:' + serverlist);
 
